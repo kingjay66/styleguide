@@ -1,0 +1,12 @@
+{
+  "name": "@epandco/stylelint-config",
+  "version": "1.0.0",
+  "description": "EP+Co's standard stylelint config for CSS and Sass projects",
+  "main": "index.js",
+  "author": "EP+Co",
+  "repository": "epandco/styleguide",
+  "license": "MIT",
+  "peerDependencies": {
+    "stylelint": "^13.7.2"
+  }
+}
