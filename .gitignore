@@ -61,3 +61,6 @@ $RECYCLE.BIN/
 # IDE
 .vscode/
 .idea/
+
+# Dependencies
+node_modules/
