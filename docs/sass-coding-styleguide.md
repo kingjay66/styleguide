@@ -1,4 +1,4 @@
-# SASS Coding Styleguide
+# Sass Coding Styleguide
 This is not a visual styleguide. This coding styleguide's purpose is to:
 
 - standardize code
@@ -10,9 +10,9 @@ This styleguide applies not only to our new approach of component based styling,
 
 ## Structure
 
-sass/\
+Sass/\
 |\
-|– abstracts/ (or utilities/)\
+|– abstracts/ (or utilities/)\ *note: should not contain or output any actual CSS*\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _colors.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;// Sass colors variables\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _fonts.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; // Sass fonts variables\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _breakpoints.scss &nbsp; &nbsp;// Sass breakpoints variables\
@@ -20,7 +20,7 @@ sass/\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _utilities.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;// Sass utilities functions\
 |\
 |– modules/ (or partials/)\
-|&nbsp; &nbsp; &nbsp; &nbsp;|– _reset.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Reset/normalize\
+|&nbsp; &nbsp; &nbsp; &nbsp;|– _reset.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // reset/normalize\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _base.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // base rules\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _grid.scss &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;// grid system\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _layout.scss &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;// layout system\
@@ -35,11 +35,14 @@ sass/\
 ## Naming
 
 ### Extension
-Use the `.scss` extension for SASS files.
+Use the `.scss` extension for Sass files.
+
+### Pathname
+Use kebab-case. e.g., `\site-styles`\
 
 ### Filename
 Use kebab-case. e.g., `site-styles.scss`\
-Use the leading underscore for partial sass file. e.g., `_site-header.scss`\
+Use the leading underscore for partial Sass file. e.g., `_site-header.scss`\
 The underscore signals to Sass to NOT compile a partial as a CSS file.
 
 ### Selector naming
@@ -58,13 +61,13 @@ We use the BEM naming convention.
 - **M**odifier: variant or extension of the Block.
 
 ```scss
-<!-- block -->
+/* block */
 .post { }
 
-<!-- element -->
+/* element */*
 .post__body { }
 
-<!-- modifier -->
+/* modifier */*
 .post--short { }
 
 ```
@@ -94,18 +97,18 @@ Do not import duplicate stylesheets.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 @import "style-one.css";
 @import "style-one.css";
 
-<!-- Good -->
+/* Good */*
 @import "style-one.css";
 @import "style-two.css";
 
 ```
 
 ### Use
-Use the [@use](https://sass-lang.com/documentation/at-rules/use) rule for loading from other stylesheets mixins, functions, and variables.
+Use the [@use](https://Sass-lang.com/documentation/at-rules/use) rule for loading mixins, functions, and variables from other stylesheets.
 
 - \<namespace>.\<variable>
 - \<namespace>.\<function>()
@@ -122,7 +125,7 @@ Use the [@use](https://sass-lang.com/documentation/at-rules/use) rule for loadin
 ```
 
 ### Forward
-Use the [@forward](https://sass-lang.com/documentation/at-rules/forward) rule for loading sass stylesheets to access its mixins, functions, and variables.
+Use the [@forward](https://Sass-lang.com/documentation/at-rules/forward) rule for loading Sass stylesheets to access its mixins, functions, and variables.
 
 ```scss
 // _colors.scss
@@ -152,6 +155,7 @@ Make as many partial files as possible for easy managing, maintenance, scanning,
 
 ## Syntax & Formatting
 Stylelinting is used to maintain a standard in writing uniform css.\
+Proper syntax and formatting in most cases do not affect browser performance, but are in place for the benefit of clarity and consistency in reading source code.\
 Here's a reference to the working [stylelintrc](https://github.com/epandco/unthink-cli/blob/master/unthink-stack/src/client/.stylelintrc) configuration should it need to be used outside the stack.
 
 ### General rules
@@ -165,17 +169,17 @@ Indent by 2 spaces.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {
 background-color: aqua;
 }
 
-<!-- Bad -->
+/* Bad */*
 .hero {
     background-color: aqua;
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   background-color: aqua;
 }
@@ -189,10 +193,10 @@ Use a single space before the closing brace (}).
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {background-color: aqua;}
 
-<!-- Good -->
+/* Good */*
 .hero { background-color: aqua; }
 }
 
@@ -202,13 +206,13 @@ Use a single space after the opening parentheses (().\
 Use a single space before the closing parentheses ()).
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {
   width: calc(100%);
   background-image: url('../path/image.jpg');
 }
 
-<!-- Good  -->
+/* Good  */*
 .hero {
   width: calc( 100% );
   background-image: url( '../path/image.jpg' );
@@ -221,12 +225,12 @@ Do not use a space before the colon (:).
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {
   width :calc( 100% );
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   width: calc( 100% );
 }
@@ -239,12 +243,12 @@ Place unrelated selectors on new lines.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero, .hero-super, cta {
   background-color: red;
 }
 
-<!-- Good -->
+/* Good */*
 .hero, .hero-super,
 .cta {
   background-color: red;
@@ -255,12 +259,12 @@ Place unrelated selectors on new lines.
 Place new lines for each new declaration (property: value).
 
 ```scss
-<!-- Bad -->
+/* Bad */*
 .hero {
   background-color: red; color: white;
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   background-color: red;
   color: white;
@@ -272,10 +276,10 @@ Place the first declaration on a new line after the opening brace ({).\
 Place the closing brace (}) on a new line.
 
 ```scss
-<!-- Bad -->
+/* Bad */*
 .hero { background-color: red; color: white; }
 
-<!-- Good -->
+/* Good */*
 .hero {
   background-color: red;
   color: white;
@@ -286,7 +290,7 @@ Place the closing brace (}) on a new line.
 **single rule exception.*
 
 ```scss
-<!-- Good -->
+/* Good */*
 .hero { background-color: red; }
 
 ```
@@ -296,15 +300,15 @@ Blocks should not remain empty.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {}
 
-<!-- Good -->
+/* Good */*
 .hero { 
   height: 50px;
 }
 
-<!-- Good -->
+/* Good */*
 .hero { 
   /* comment */
   // comment
@@ -319,7 +323,7 @@ The double slash `//` should not be used in the final compiled css file.\
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero {
   /**/
 
@@ -331,7 +335,7 @@ The double slash `//` should not be used in the final compiled css file.\
 
 }
 
-<!-- Good -->
+/* Good */*
 .hero { 
   /* block comment */
 
@@ -354,12 +358,12 @@ The double slash `//` should not be used in the final compiled css file.\
 Use single quotes for string values.
 
 ```scss
-<!-- Bad -->
+/* Bad */*
 .section:after {
   content: "foo-x";
 }
 
-<!-- Good -->
+/* Good */*
 .section:after {
   content: 'foo-x';
 }
@@ -370,12 +374,12 @@ Use quotes for urls.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   background-image: url(../path/image.jpg);
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   background-image: url( '../path/image.jpg' );
 }
@@ -387,12 +391,12 @@ Use a generic font in the font stack.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 p {
   font-family: Helvetica, Arial;
 }
 
-<!-- Good -->
+/* Good */*
 p {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -405,11 +409,11 @@ Use units in the lowercase format.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .box { width: 100pixels; }
 .box { width: 100PX; }
 
-<!-- Good -->
+/* Good */*
 .box { width: 100px; }
 
 ```
@@ -419,13 +423,13 @@ Use the uppercase, longhand, non-named format for hexadecimal values.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .title { color: #fff13x; }
 .title { color: #12345as; }
 .title { color: #000; }
 .title { color: black; }
 
-<!-- Good -->
+/* Good */*
 .title { color: #FFF138; }
 .title { color: #123450AA; }
 .title { color: #000000; }
@@ -437,12 +441,12 @@ Use valid properties defined in the CSS Specifications.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero { 
   colr: green;
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   color: green;
 }
@@ -452,13 +456,13 @@ Do not duplicate properties in a declaration block.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero { 
   width: 25%;
   width: 800px;
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   width: 100px;
 }
@@ -468,7 +472,7 @@ Use shorthand form when properties can be combined.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .hero { 
   padding-top: 5%;
   padding-right: 12px;
@@ -476,7 +480,7 @@ Use shorthand form when properties can be combined.
   padding-left: 20px;
 }
 
-<!-- Good -->
+/* Good */*
 .hero {
   padding: 5% 12px 15% 20px
 }
@@ -495,14 +499,14 @@ When using the calc() functions, calc must:
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .sidebar { width: calc(); }
 .sidebar { width: calc(100% 8px); }
 .sidebar { width: calc(100% - - 8px); }
 .sidebar { width: calc(100%+8px); }
 .sidebar { width: calc(100%/0); }
 
-<!-- Good -->
+/* Good */*
 .sidebar { width: calc( 100% - 8px ); }
 .sidebar { width: calc( 100% / 2 ); }
 
@@ -513,22 +517,22 @@ Use valid pseudo elements and classes defined in the CSS Specifications.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .radio:unknown-class {
   content: '';
 }
 
-<!-- Bad -->
+/* Bad */*
 .radio::PSEUDO-Element {
   content: '';
 }
 
-<!-- Good -->
+/* Good */*
 .radio:before {
   content: '';
 }
 
-<!-- Good -->
+/* Good */*
 .radio::selection {
   content: '';
 }
@@ -540,12 +544,12 @@ Use a single semicolons.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .radio {
   background-color: #FFFFFF;;
 }
 
-<!-- Good -->
+/* Good */*
 .radio {
   background-color: #FFFFFF;
 }
@@ -557,12 +561,12 @@ Use the shorthand format for redundant values.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   padding: 2px 2px 2px 2px;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   padding: 2px;
 }
@@ -574,7 +578,7 @@ Use a max nesting depth of 3.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   & .body { /* 1 */
     & .cta { /* 2 */
@@ -587,7 +591,7 @@ Use a max nesting depth of 3.
   }
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   & .body { /* 1 */
     & .link-text { /* 2 */
@@ -602,7 +606,7 @@ Root-level at-rules are not included in the nesting depth.
 
 ```scss
 
-<!-- Good -->
+/* Good */*
 @media print { /* ignored */
   .section {
     & .body { /* 1 */
@@ -620,12 +624,12 @@ Use a leading zero for number values.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   width: .45rem;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   width: 0.45rem;
 }
@@ -636,13 +640,13 @@ Do not use a trailing zero for number values.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   height: 1.0rem;
   line-height: 1.0100;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   height: 1rem;
   line-height: 1.01;
@@ -655,12 +659,12 @@ Exclude a unit for zero number values.\
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   top: 0px;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   top: 0;
 }
@@ -671,17 +675,17 @@ Exclude a unit for zero number values.\
 Use lowercase for keyword properties.
 
 ```scss
-<!-- Bad -->
+/* Bad */*
 .section {
   WIDTH: 1px;
 }
 
-<!-- Bad -->
+/* Bad */*
 .section {
   Width: 1px;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   width: 1px;
 }
@@ -692,17 +696,17 @@ Use lowercase for keyword values.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .section {
   display: BLOCK;
 }
 
-<!-- Bad -->
+/* Bad */*
 .section {
   display: Block;
 }
 
-<!-- Good -->
+/* Good */*
 .section {
   display: block;
 }
@@ -714,11 +718,11 @@ Use rules of higher specificity after selectors of lower specificity.
 
 ```scss
 
-<!-- Bad -->
+/* Bad */*
 .b .a {}
 .a {}
 
-<!-- Good -->
+/* Good */*
 .a {}
 .b .a {}
 
@@ -773,14 +777,14 @@ For more portable component use try to limit, reduce, or eliminate the use of qu
 Using `.form-input` sans-qualifier (`div`) opens the component for easy reuse.
 
 ```scss
-<!-- Bad -->
+/* Bad */*
 div.form-input {
   width: 1px;
   border-radius: 16px;
   border: #000000 2px solid;
 }
 
-<!-- Good -->
+/* Good */*
 .form-input {
   width: 1px;
   border-radius: 16px;
@@ -828,7 +832,7 @@ General styling order:
 
 ```
 
-## Order of properties (WIP)
+## Recommended order of properties
 
 - by type
 - randomly
