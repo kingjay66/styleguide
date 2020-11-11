@@ -12,7 +12,7 @@ This styleguide applies not only to our new approach of component based styling,
 
 Sass/\
 |\
-|– abstracts/ (or utilities/)\ *note: should not contain or output any actual CSS*\
+|– abstracts/ (or utilities/) *note: should not contain or output any actual CSS*\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _colors.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;// Sass colors variables\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _fonts.scss &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; // Sass fonts variables\
 |&nbsp; &nbsp; &nbsp; &nbsp;|– _breakpoints.scss &nbsp; &nbsp;// Sass breakpoints variables\
