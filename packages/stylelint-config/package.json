@@ -7,6 +7,6 @@
   "repository": "epandco/styleguide",
   "license": "MIT",
   "peerDependencies": {
-    "stylelint": "^13.7.2"
+    "stylelint": "^13.8.0"
   }
 }
