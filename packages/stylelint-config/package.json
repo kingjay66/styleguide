@@ -1,6 +1,6 @@
 {
   "name": "@epandco/stylelint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "EP+Co's standard stylelint config for CSS and Sass projects",
   "main": "index.js",
   "author": "EP+Co",
