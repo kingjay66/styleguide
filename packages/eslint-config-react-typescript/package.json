@@ -1,0 +1,19 @@
+{
+  "name": "@epandco/eslint-config-react-typescript",
+  "version": "1.0.0",
+  "description": "EP+Co's standard ESLint config for React (TypeScript) projects",
+  "main": "index.js",
+  "author": "EP+Co",
+  "repository": "epandco/styleguide",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  },
+  "peerDependencies": {
+    "eslint": "^7.27.0"
+  }
+}
