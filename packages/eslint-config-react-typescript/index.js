@@ -16,7 +16,7 @@ module.exports = {
     'ecmaVersion': 2021,
     'ecmaFeature': {
       'jsx': true
-    },
+    }
   },
   'extends': [
     'plugin:@typescript-eslint/recommended',
@@ -57,6 +57,11 @@ module.exports = {
         'ts': 'never',
         'tsx': 'never'
       }
-    ],
+    ]
+  },
+  'settings': {
+    'import/resolver': {
+      'typescript': {}
+    }
   }
 };
