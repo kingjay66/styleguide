@@ -1,0 +1,28 @@
+@media (min-width: 50em) {
+  .blockelement {
+    height: 40px;
+  }
+}
+.blockelement {
+  color: #000000;
+  background-color: #CCCCCC;
+  font-family: "arial";
+}
+
+.blockelement--fire {
+  width: 100px;
+  background-color: #FFFFFF;
+  font-family: "arial", sans-serif;
+  transform: translate(1, 1);
+}
+
+.block {
+  /* comment */
+  background-image: url("'../path/image.jpg");
+}
+
+.blockelement--short {
+  width: 100px;
+}
+
+/*# sourceMappingURL=main.css.map */

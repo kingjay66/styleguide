@@ -1,0 +1,40 @@
+// base css file
+$font: 'arial';
+
+@function calcrem($x, $y) {
+  $sum: ($x + $y);
+  @return $sum;
+}
+
+@mixin color() {
+  color: #000000;
+}
+
+@media (min-width: 50em) {
+
+  .blockelement {
+    height: 40px;
+  }
+}
+
+.blockelement {
+  @include color;
+  background-color: #CCCCCC;
+  font-family: $font;
+}
+
+.blockelement--fire {
+  width: 100px;
+  background-color: #FFFFFF;
+  font-family: 'arial', sans-serif;
+  transform: translate(1, 1);
+}
+
+.block {
+  /* comment */
+  // comment
+
+  background-image: url("'../path/image.jpg");
+}
+
+.blockelement--short { width: 100px; }
